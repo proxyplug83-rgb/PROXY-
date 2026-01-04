@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROXY PLUG – Games</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#ffffff; color:#000000; margin:0; }
+    header { padding:16px; text-align:center; background:#f2f2f2; position:sticky; top:0; z-index:5; }
+    h1 { margin:0; letter-spacing:2px; }
+    
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; padding:16px; }
+    .card { background:#ffffff; border-radius:12px; padding:12px; box-shadow:0 4px 12px rgba(0,0,0,.1); transition:transform .15s ease, box-shadow .15s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.2); }
+    .card h3 { margin:0 0 8px; }
+    .card button, 
+    /* Snow animation */
+    .snowflake { position: fixed; top: -10px; color: #000000; user-select: none; pointer-events: none; font-size: 1em; animation-name: fall; animation-timing-function: linear; }
+    @keyframes fall { to { transform: translateY(110vh); } }
+  </style>
+</head>
+<body>
+<header>
+  
+  <h1>PROXY PLUG</h1>
+  <p>Click a game to play instantly</p>
+
+    <!-- DuckDuckGo Search -->
+  <form onsubmit="duckSearch(event)" style="margin-top:12px; display:flex; justify-content:center; gap:8px;">
+    <input id="duckQuery" type="text" placeholder="Search the web with DuckDuckGo" style="padding:10px; width:260px; border-radius:8px; border:none;">
+    <button type="submit" style="padding:10px 16px; border-radius:8px; border:none; cursor:pointer;">Search</button>
+  </form>
+</header>
+
+<div class="grid">
+  <!-- Shooting -->
+  <div  >
+
+  <h2 style="grid-column:1/-1;">🔫 Shooting Games</h2>
+  <div class="card"><h3>Shell Shockers</h3><button onclick="play('https://shellshock.io')">Play</button></div>
+  <div class="card"><h3>Krunker</h3><button onclick="play('https://krunker.io')">Play</button></div>
+  <div class="card"><h3>Shooter.io</h3><button onclick="play('https://shooter.io')">Play</button></div>
+  <div class="card"><h3>Venge.io</h3><button onclick="play('https://venge.io')">Play</button></div>
+  <div class="card"><h3>BuildNow GG</h3><button onclick="play('https://buildnow.gg')">Play</button></div>
+  <div class="card"><h3>1v1.LOL</h3><button onclick="play('https://1v1.lol')">Play</button></div>
+  <div class="card"><h3>Bullet Force</h3><button onclick="play('https://www.crazygames.com/game/bullet-force')">Play</button></div>
+  <div class="card"><h3>WarBrokers</h3><button onclick="play('https://warbrokers.io')">Play</button></div>
+
+  </div>
+
+  <!-- Puzzle -->
+  <div class="tab-section" data-tab="puzzle">
+  <h2 style="grid-column:1/-1;">🧩 Casual / Puzzle Games</h2>
+  <div class="card"><h3>Block Blast</h3><button onclick="play('https://www.crazygames.com/game/block-blast')">Play</button></div>
+  <div class="card"><h3>2048</h3><button onclick="play('https://play2048.co')">Play</button></div>
+  <div class="card"><h3>Hexa Sort</h3><button onclick="play('https://www.crazygames.com/game/hexa-sort')">Play</button></div>
+  <div class="card"><h3>Wood Blocks</h3><button onclick="play('https://www.crazygames.com/game/wood-blocks')">Play</button></div>
+
+  </div>
+
+  <!-- Car -->
+  <div class="tab-section" data-tab="car">
+  <h2 style="grid-column:1/-1;">🏎️ Car Games</h2>
+  <div class="card"><h3>Drift Hunters</h3><button onclick="play('https://drifthunters.com')">Play</button></div>
+  <div class="card"><h3>Madalin Stunt Cars 2</h3><button onclick="play('https://www.madalingames.com/game/madalin-stunt-cars-2')">Play</button></div>
+  <div class="card"><h3>Madalin Stunt Cars 3</h3><button onclick="play('https://www.madalingames.com/game/madalin-stunt-cars-3')">Play</button></div>
+  <div class="card"><h3>City Car Driving</h3><button onclick="play('https://www.crazygames.com/game/city-car-driving-stunt-master')">Play</button></div>
+  <div class="card"><h3>Racing Limits</h3><button onclick="play('https://www.crazygames.com/game/racing-limits')">Play</button></div>
+  <div class="card"><h3>Drift Boss</h3><button onclick="play('https://www.crazygames.com/game/drift-boss')">Play</button></div>
+  <div class="card"><h3>Burnout Drift</h3><button onclick="play('https://www.crazygames.com/game/burnout-drift')">Play</button></div>
+
+  </div>
+
+  <!-- Apps -->
+  <div class="tab-section" data-tab="apps">
+  <h2 style="grid-column:1/-1;">📱 Apps</h2>
+  <div class="card"><h3>TikTok (Web)</h3><button onclick="openApp('https://www.tiktok.com')">Open</button></div>
+  <div class="card"><h3>YouTube</h3><button onclick="openApp('https://www.youtube.com')">Open</button></div>
+  <div class="card"><h3>Instagram</h3><button onclick="openApp('https://www.instagram.com')">Open</button></div>
+  <div class="card"><h3>Discord</h3><button onclick="openApp('https://discord.com/app')">Open</button></div>
+  <div class="card"><h3>Spotify</h3><button onclick="openApp('https://open.spotify.com')">Open</button></div>
+
+</div>
+  <div class="card">
+    <h3>Krunker</h3>
+    <button onclick="play('https://krunker.io')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Shooter.io</h3>
+    <button onclick="play('https://shooter.io')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Venge.io</h3>
+    <button onclick="play('https://venge.io')">Play</button>
+  </div>
+  <div class="card">
+    <h3>BuildNow GG</h3>
+    <button onclick="play('https://buildnow.gg')">Play</button>
+  </div>
+  <h2 style="grid-column:1/-1;">🏎️ Car Games</h2>
+  <div class="card">
+    <h3>Drift Hunters</h3>
+    <button onclick="play('https://drifthunters.com')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Madalin Stunt Cars 2</h3>
+    <button onclick="play('https://www.madalingames.com/game/madalin-stunt-cars-2')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Madalin Stunt Cars 3</h3>
+    <button onclick="play('https://www.madalingames.com/game/madalin-stunt-cars-3')">Play</button>
+  </div>
+  <div class="card">
+    <h3>City Car Driving</h3>
+    <button onclick="play('https://www.crazygames.com/game/city-car-driving-stunt-master')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Racing Limits</h3>
+    <button onclick="play('https://www.crazygames.com/game/racing-limits')">Play</button>
+  </div>
+  <div class="card">
+    <h3>1v1.LOL</h3>
+    <button onclick="play('https://1v1.lol')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Bullet Force</h3>
+    <button onclick="play('https://www.crazygames.com/game/bullet-force')">Play</button>
+  </div>
+  <div class="card">
+    <h3>WarBrokers</h3>
+    <button onclick="play('https://warbrokers.io')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Drift Boss</h3>
+    <button onclick="play('https://www.crazygames.com/game/drift-boss')">Play</button>
+  </div>
+  <div class="card">
+    <h3>Burnout Drift</h3>
+    <button onclick="play('https://www.crazygames.com/game/burnout-drift')">Play</button>
+  </div>
+  <h2 style="grid-column:1/-1;">📱 Apps</h2>
+  <h2 style="grid-column:1/-1;">📱 Apps</h2>
+  <div class="card">
+    <h3>TikTok (Web)</h3>
+    <button onclick="openApp('https://www.tiktok.com')">Open</button>
+  </div>
+  <div class="card">
+    <h3>YouTube</h3>
+    <button onclick="openApp('https://www.youtube.com')">Open</button>
+  </div>
+  <div class="card">
+    <h3>Instagram</h3>
+    <button onclick="openApp('https://www.instagram.com')">Open</button>
+  </div>
+  <div class="card">
+    <h3>Discord</h3>
+    <button onclick="openApp('https://discord.com/app')">Open</button>
+  </div>
+  <div class="card">
+    <h3>Spotify</h3>
+    <button onclick="openApp('https://open.spotify.com')">Open</button>
+  </div>
+</div>
+</div>
+
+<!-- Player Controls -->
+
+
+<div id="player"></div>
+
+<footer>© PROXY PLUG</footer>
+
+<script>
+// Play games in iframe (only works if site allows embedding)
+function play(url) {
+  const player = document.getElementById('player');
+  player.innerHTML = `<iframe src="${url}" allowfullscreen></iframe>`;
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+// Open apps in new tab
+function openApp(url) {
+  window.open(url, '_blank');
+}
+
+// DuckDuckGo search
+function duckSearch(e) {
+  e.preventDefault();
+  const q = document.getElementById('duckQuery').value;
+  if (!q) return;
+  window.open('https://duckduckgo.com/?q=' + encodeURIComponent(q), '_blank');
+}
+</script>
+</body>
+</html>
